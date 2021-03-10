@@ -21,7 +21,7 @@ Install the latest version from [pub](https://pub.dartlang.org/packages/fl_pin_c
 Add this to your package's pubspec.yaml file:
 ```
 dependencies:
-  fl_pin_code: ^0.0.6
+  fl_pin_code: ^0.0.7
 ```
 ### 2. Install it
 You can install packages from the command line:

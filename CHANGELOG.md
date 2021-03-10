@@ -1,3 +1,7 @@
+## [0.0.7] - 10 March 2021
+
+* Format code.
+
 ## [0.0.6] - 10 March 2021
 
 * Remove redundant.

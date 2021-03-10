@@ -1,4 +1,1 @@
-enum PinCodeStyle {
-  underline,
-  box
-}
+enum PinCodeStyle { underline, box }
