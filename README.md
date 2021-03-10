@@ -1,8 +1,8 @@
 # fl_pin_code
 
-[![pub package](https://img.shields.io/pub/v/fl_pin_code.svg)]
-[![License: BSD-3-Clause](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/BSD-3-Clause)
-![GitHub top language](https://img.shields.io/github/tientham/fl_pin_code)
+[![pub package](https://img.shields.io/badge/build-success-green)]
+[![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD--3--Clause-orange)](https://opensource.org/licenses/BSD-3-Clause)
+![Dart language](https://img.shields.io/badge/Dart-100%25-blue)
 
 # fl_pin_code
 
