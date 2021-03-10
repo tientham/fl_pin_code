@@ -1,8 +1,7 @@
 name: fl_pin_code
-description: A new Flutter package project.
+description: Simple widget for showing PIN codes.
 version: 0.0.1
-author:
-homepage:
+homepage: https://github.com/tientham/fl_pin_code
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
