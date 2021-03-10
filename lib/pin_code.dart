@@ -11,6 +11,9 @@ class PinCode extends StatefulWidget {
   /// Text style on each field
   final TextStyle style;
 
+  /// Text keyboard type on fields
+  final TextInputType keyboardType;
+
   /// Style on each field
   final PinCodeStyle fieldStyle;
 
@@ -29,6 +32,7 @@ class PinCode extends StatefulWidget {
       required this.fieldWidth,
       required this.style,
       required this.fieldStyle,
+      this.keyboardType = TextInputType.number,
       this.isObscure = false,
       this.onChanged,
       this.onCompleted});
@@ -81,8 +85,10 @@ class _PinCodeState extends State<PinCode> {
         textAlign: TextAlign.center,
         maxLength: 1,
         maxLines: 1,
+        keyboardType: widget.keyboardType,
         style: widget.style,
         autofocus: false,
+        obscureText: widget.isObscure,
         controller: _textControllers[index],
         decoration: InputDecoration(
           counterText: "",

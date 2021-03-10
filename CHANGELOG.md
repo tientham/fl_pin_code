@@ -1,3 +1,8 @@
+## [0.0.8] - 10 March 2021
+
+* Obscuring text.
+* Text input type for pin code widget.
+
 ## [0.0.7] - 10 March 2021
 
 * Format code.

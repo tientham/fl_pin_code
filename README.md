@@ -21,7 +21,7 @@ Install the latest version from [pub](https://pub.dartlang.org/packages/fl_pin_c
 Add this to your package's pubspec.yaml file:
 ```
 dependencies:
-  fl_pin_code: ^0.0.7
+  fl_pin_code: ^0.0.8
 ```
 ### 2. Install it
 You can install packages from the command line:
@@ -44,4 +44,18 @@ import 'package:fl_pin_code/fl_pin_code.dart';
                     fieldWidth: 40.0,
                     style: TextStyle(color: Colors.black, fontSize: 15),
                     fieldStyle: PinCodeStyle.box),
+                    
+            PinCode(
+                  keyboardType: TextInputType.number,
+                  isObscure: true,
+                  numberOfFields: 5,
+                  fieldWidth: 40.0,
+                  style: TextStyle(color: Colors.black, fontSize: 15),
+                  fieldStyle: PinCodeStyle.box,
+                  onCompleted: (text) {
+                    setState(() {
+                      hash.pinHash = text;
+                    });
+                  },
+            ),
 ```
