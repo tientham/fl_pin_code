@@ -1,6 +1,6 @@
 name: fl_pin_code
 description: Simple widget for showing PIN codes.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/tientham/fl_pin_code
 
 environment:

@@ -63,15 +63,19 @@ class _PinCodeState extends State<PinCode> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: _pinFields,
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: _pinFields,
+      ),
     );
   }
 
   Widget _buildTextField(@required BuildContext context, @required int index) {
     return Container(
+      width: widget.fieldWidth,
       child: TextField(
         textAlign: TextAlign.center,
         maxLength: 1,
