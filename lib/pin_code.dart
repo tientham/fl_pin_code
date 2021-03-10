@@ -2,7 +2,6 @@ import 'package:fl_pin_code/styles.dart';
 import 'package:flutter/material.dart';
 
 class PinCode extends StatefulWidget {
-
   /// Number of Pin fields
   final int numberOfFields;
 
@@ -24,23 +23,21 @@ class PinCode extends StatefulWidget {
   /// Called when pin is completed
   final ValueChanged<String>? onCompleted;
 
-  PinCode({
-    Key? key,
-    required this.numberOfFields,
-    required this.fieldWidth,
-    required this.style,
-    required this.fieldStyle,
-    this.isObscure = false,
-    this.onChanged,
-    this.onCompleted
-  });
+  PinCode(
+      {Key? key,
+      required this.numberOfFields,
+      required this.fieldWidth,
+      required this.style,
+      required this.fieldStyle,
+      this.isObscure = false,
+      this.onChanged,
+      this.onCompleted});
 
   @override
   _PinCodeState createState() => _PinCodeState();
 }
 
 class _PinCodeState extends State<PinCode> {
-
   late List<String> _pinCode;
   late List<TextEditingController?> _textControllers;
   late List<Widget> _pinFields;
@@ -49,16 +46,20 @@ class _PinCodeState extends State<PinCode> {
   void initState() {
     super.initState();
 
-    _textControllers = List<TextEditingController?>.filled(widget.numberOfFields, null, growable: false);
+    _textControllers = List<TextEditingController?>.filled(
+        widget.numberOfFields, null,
+        growable: false);
     _pinCode = List.generate(widget.numberOfFields, (index) => '');
 
-    _pinFields = List.generate(widget.numberOfFields, (index) => _buildTextField(context, index));
+    _pinFields = List.generate(
+        widget.numberOfFields, (index) => _buildTextField(context, index));
   }
 
   @override
   void dispose() {
     super.dispose();
-    _textControllers.forEach((TextEditingController? controller) => controller?.dispose());
+    _textControllers
+        .forEach((TextEditingController? controller) => controller?.dispose());
   }
 
   @override
@@ -66,7 +67,7 @@ class _PinCodeState extends State<PinCode> {
     return Container(
       width: MediaQuery.of(context).size.width,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: _pinFields,
       ),
@@ -97,8 +98,9 @@ class _PinCodeState extends State<PinCode> {
 
           // if there is no any null value, then pin code is completed, automatically
           // call onCompleted callback
-          if (!_pinCode.contains(null) && !_pinCode.contains('') &&
-          currentPin.length == widget.numberOfFields) {
+          if (!_pinCode.contains(null) &&
+              !_pinCode.contains('') &&
+              currentPin.length == widget.numberOfFields) {
             widget.onCompleted!(currentPin);
           }
 
@@ -112,11 +114,12 @@ class _PinCodeState extends State<PinCode> {
   InputBorder getInputDecoration(PinCodeStyle style) {
     switch (style) {
       case PinCodeStyle.box:
-        return OutlineInputBorder(borderSide: BorderSide(width: widget.fieldWidth));
+        return OutlineInputBorder(
+            borderSide: BorderSide(width: widget.fieldWidth));
       case PinCodeStyle.underline:
       default:
-      return UnderlineInputBorder(borderSide: BorderSide(width: widget.fieldWidth));
+        return UnderlineInputBorder(
+            borderSide: BorderSide(width: widget.fieldWidth));
     }
   }
-
 }
