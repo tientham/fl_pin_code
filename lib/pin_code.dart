@@ -74,7 +74,7 @@ class _PinCodeState extends State<PinCode> {
     );
   }
 
-  Widget _buildTextField(@required BuildContext context, @required int index) {
+  Widget _buildTextField(BuildContext context, int index) {
     return Container(
       width: widget.fieldWidth,
       child: TextField(

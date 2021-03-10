@@ -1,3 +1,7 @@
+## [0.0.6] - 10 March 2021
+
+* Remove redundant.
+
 ## [0.0.5] - 10 March 2021
 
 * Update Project description.
