@@ -1,6 +1,6 @@
 # fl_pin_code
 
-[![pub package](https://img.shields.io/badge/build-success-green)]
+![pub package](https://img.shields.io/badge/build-success-green)
 [![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD--3--Clause-orange)](https://opensource.org/licenses/BSD-3-Clause)
 ![Dart language](https://img.shields.io/badge/Dart-100%25-blue)
 
