@@ -1,6 +1,6 @@
 name: fl_pin_code
 description: Simple and Beautiful widget for showing PIN codes in Flutter applications.
-version: 0.0.5
+version: 0.0.6
 homepage: https://github.com/tientham/fl_pin_code
 
 environment:
