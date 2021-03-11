@@ -44,7 +44,7 @@ import 'package:fl_pin_code/fl_pin_code.dart';
                     fieldWidth: 40.0,
                     style: TextStyle(color: Colors.black, fontSize: 15),
                     fieldStyle: PinCodeStyle.box),
-                    
+
             PinCode(
                   keyboardType: TextInputType.number,
                   isObscure: true,
