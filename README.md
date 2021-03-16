@@ -10,7 +10,9 @@ fl_pin_code helps to display Pin codes for Flutter applications.
 
 ## Feature 👇👇
 * obscure support
-* ...
+* auto moving focus
+* field shapes (box, underline)
+* null-safety
 
 ## Installing 🔧
 Install the latest version from [pub](https://pub.dartlang.org/packages/fl_pin_code).
@@ -21,7 +23,7 @@ Install the latest version from [pub](https://pub.dartlang.org/packages/fl_pin_c
 Add this to your package's pubspec.yaml file:
 ```
 dependencies:
-  fl_pin_code: ^0.0.8
+  fl_pin_code: ^0.0.9
 ```
 ### 2. Install it
 You can install packages from the command line:
@@ -58,4 +60,25 @@ import 'package:fl_pin_code/fl_pin_code.dart';
                     });
                   },
             ),
+
+            // this is taken from sample project.
+            PinCode(
+                numberOfFields: 5,
+                fieldWidth: 40.0,
+                style: TextStyle(color: Colors.black, fontSize: 15),
+                fieldStyle: PinCodeStyle.box,
+                onCompleted: (text) {
+                  if (text.trim() == "11111") {
+                    setState(() {
+                      _passwordObscureText = false;
+                    });
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text('Please insert 11111 to unlock')));
+                  }
+                  Navigator.of(context).pop();
+                },
+                // onChanged: (_) {},
+            )
+
 ```

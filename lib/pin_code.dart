@@ -44,6 +44,7 @@ class PinCode extends StatefulWidget {
 class _PinCodeState extends State<PinCode> {
   late List<String> _pinCode;
   late List<TextEditingController?> _textControllers;
+  late List<FocusNode?> _focusNodes;
   late List<Widget> _pinFields;
 
   @override
@@ -53,6 +54,10 @@ class _PinCodeState extends State<PinCode> {
     _textControllers = List<TextEditingController?>.filled(
         widget.numberOfFields, null,
         growable: false);
+
+    _focusNodes =
+        List<FocusNode?>.filled(widget.numberOfFields, null, growable: false);
+
     _pinCode = List.generate(widget.numberOfFields, (index) => '');
 
     _pinFields = List.generate(
@@ -79,6 +84,14 @@ class _PinCodeState extends State<PinCode> {
   }
 
   Widget _buildTextField(BuildContext context, int index) {
+    if (_focusNodes[index] == null) {
+      _focusNodes[index] = new FocusNode();
+    }
+
+    if (_textControllers[index] == null) {
+      _textControllers[index] = new TextEditingController();
+    }
+
     return Container(
       width: widget.fieldWidth,
       child: TextField(
@@ -90,14 +103,30 @@ class _PinCodeState extends State<PinCode> {
         autofocus: false,
         obscureText: widget.isObscure,
         controller: _textControllers[index],
+        focusNode: _focusNodes[index],
         decoration: InputDecoration(
           counterText: "",
           border: getInputDecoration(widget.fieldStyle),
         ),
         onChanged: (String value) {
+          if (value.trim().isEmpty) {
+            if (index == 0) return;
+
+            _focusNodes[index]!.unfocus();
+            _focusNodes[index - 1]!.requestFocus();
+          }
+
           setState(() {
             _pinCode[index] = value;
           });
+
+          if (value.trim().isNotEmpty) {
+            _focusNodes[index]!.unfocus();
+          }
+
+          if (index + 1 != widget.numberOfFields && value.trim().isNotEmpty) {
+            FocusScope.of(context).requestFocus(_focusNodes[index + 1]);
+          }
 
           String currentPin = '';
           _pinCode.forEach((element) => currentPin += element);
@@ -111,7 +140,9 @@ class _PinCodeState extends State<PinCode> {
           }
 
           // call onChanged callback
-          widget.onChanged!(currentPin);
+          if (widget.onChanged != null) {
+            widget.onChanged!(currentPin);
+          }
         },
       ),
     );

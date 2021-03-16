@@ -1,3 +1,10 @@
+## [0.0.9] - 16 March 2021
+
+* Fix hidden crash when onChanged callback is null.
+* Adding sample project to show how to use fl_pin_code.
+* Adding focus nodes into widget.
+* Minor bug fixes.
+
 ## [0.0.8] - 10 March 2021
 
 * Obscuring text.
